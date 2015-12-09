@@ -17,17 +17,16 @@ void getFigure() {
 		cout << "Enter the two node, example(<1,2>)" << endl 
 			 << "?";
 		cin >> temp;
-		cout << temp;
+		//cout << temp << endl;
 
 		int temp1 = (int)(temp[1] - '0');
 		int temp2 = (int)(temp[3] - '0');
-		
+
+		++newFigure[temp1][temp2];
+		//cout << newFigure[temp1][temp2];
+		cout << "Do you want enter new? (enter 0 for next, enter 1 for exit)" << endl 
+		     << "?";
+		cin >> flag;
 	}
 
-}
-
-int main(int argc, char const *argv[])
-{
-	getFigure();
-	return 0;
 }
