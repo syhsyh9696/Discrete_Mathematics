@@ -26,7 +26,7 @@ void getFigure() {
 		++newFigure[temp1][temp2];
 		//cout << newFigure[temp1][temp2];
 		MATRIX<double> testFi = trans(newFigure);
-		cout << testFi[temp2][temp1];
+		cout << testFi[temp1][temp2];
 
 		cout << "Do you want enter new? (enter 0 for next, enter 1 for exit)" << endl 
 		     << "?";
