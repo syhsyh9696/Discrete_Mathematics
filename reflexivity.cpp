@@ -30,7 +30,7 @@ bool anti_reflexivity(MATRIX<double>& temp, int row) {
 			break;
 	}
 	return (flag == row);
-}
+}	
 
 int main(int argc, char const *argv[])
 {
