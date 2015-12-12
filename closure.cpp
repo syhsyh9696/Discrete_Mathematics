@@ -53,7 +53,12 @@ int main(int argc, char const *argv[])
 	MATRIX<double> test1(row, row);
 
 	test[0][1] = 1;
+	test[1][2] = 1;
+	test[1][3] = 1;
+	test[2][0] = 1;
+	test[2][1] = 1;
 	test[2][3] = 1;
+	test[3][0] = 1;
 	test1 = transitivityClosure(test, row);
 
 	for (int i = 0; i < row; ++i)

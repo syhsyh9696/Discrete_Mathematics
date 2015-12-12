@@ -3,19 +3,26 @@
 
 using namespace std;
 
-MATRIX<double> accMatrix(MATRIX<double> temp, int row) {
-	//MATRIX<double> temp_return(row, row);
-	for (int i = 0; i < row; ++i) 
-		temp = temp*temp;
-	for (int j = 0; j < row; ++j) {	
-		for (int k = 0; k < row; ++k) {
-			if (temp[j][k] != 0)
-				temp[j][k] = 1;
+MATRIX<double> transitivityClosure(MATRIX<double> temp, int row) {
+	for (int i = 0; i < row; ++i) {
+		for (int j = 0; j < row; ++j) {
+			if(temp[j][i] == 1) {
+				for (int k = 0; k < row; ++k) {
+					temp[j][k] = temp[j][k] + temp[i][k];
+				}
+			} 
 		}
-	}
+	} //end for
+
+	for (int x = 0; x < row; ++x) {
+		for (int y = 0; y < row; ++y) {
+			if(temp[x][y] != 0)
+				temp[x][y] = 1;
+		}
+	} //end for
+
 	return temp;
 }
-
 int main(int argc, char const *argv[])
 {
 	int row = 4;
