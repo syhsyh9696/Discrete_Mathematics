@@ -48,6 +48,7 @@ MATRIX<double> multiplication(MATRIX<double>& temp_store, MATRIX<double> temp, i
 			{
 				sum += temp_store[i][k] * temp[k][j];
 			}
+			temp_store[i][j] = sum;
 			temp_return[i][j] = sum;
 		}
 	} //end for
