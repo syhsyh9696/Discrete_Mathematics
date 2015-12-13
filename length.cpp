@@ -2,7 +2,7 @@
 #include "Matrix.cpp"
 
 using namespace std;
-MATRIX<double> multiplication(MATRIX<double>, int);
+MATRIX<double> multiplication(MATRIX<double>& temp_store, MATRIX<double> temp, int row);
 
 
 int length(MATRIX<double> temp, int row) {
@@ -25,16 +25,19 @@ int length(MATRIX<double> temp, int row) {
 	// cout << "D?";
 	// cin >> pointD;
 
-	cout << "The two point is <" << pointA << "," << pointB << ">" << endl
-		 << "<" << pointC << "," << pointD << ">" << endl;
+	cout << "The two point is <" << pointA << "," << pointB << ">" << endl;
+		 //<< "<" << pointC << "," << pointD << ">" << endl;
 
 	MATRIX<double> temp_return(row, row);
+	MATRIX<double> temp_store(row, row);
+	temp_store = temp;
+
 	for (int x = 0; x < input_length; ++x)
-		temp_return = multiplication(temp, row);
+		temp_return = multiplication(temp_store, temp, row);
 	return temp_return[pointA][pointB];	
 }
 
-MATRIX<double> multiplication(MATRIX<double> temp, int row) {
+MATRIX<double> multiplication(MATRIX<double>& temp_store, MATRIX<double> temp, int row) {
 	MATRIX<double> temp_return(row, row);
 	for (int i = 0; i < row; ++i)
 	{
@@ -43,7 +46,7 @@ MATRIX<double> multiplication(MATRIX<double> temp, int row) {
 			double sum = 0.0;
 			for (int k = 0; k < row; ++k)
 			{
-				sum += temp[i][k] * temp[k][j];
+				sum += temp_store[i][k] * temp[k][j];
 			}
 			temp_return[i][j] = sum;
 		}
@@ -54,15 +57,15 @@ MATRIX<double> multiplication(MATRIX<double> temp, int row) {
 
 int main(int argc, char const *argv[])
 {
-	int row = 4;
+	int row = 5;
 	MATRIX<double> test(row, row);
 	test[0][1] = 1;
+	test[1][0] = 1;
 	test[1][2] = 1;
-	// test[1][2] = 1;
-	// test[1][3] = 1;
-	// test[2][0] = 1;
-	// test[2][1] = 1;
-	// test[2][3] = 1;
+	test[2][1] = 1;
+	test[3][4] = 1;
+	test[4][3] = 1;
+	// test[][3] = 1;
 	// test[3][0] = 1;
 
 	MATRIX<double> test_return(row, row);
