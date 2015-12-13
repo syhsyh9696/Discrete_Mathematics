@@ -13,49 +13,23 @@ int length(MATRIX<double> temp, int row) {
 
 	int pointA = 0;
 	int pointB = 0;
-	//int pointC = 0;
-	//int pointD = 0;
+
 	cout << "Please enter two point you want to use" << endl
 		 <<"A?";
 	cin >> pointA;
 	cout << "B?";
 	cin >> pointB;
-	// cout << "C?";
-	// cin >> pointC;
-	// cout << "D?";
-	// cin >> pointD;
+
 
 	cout << "The two point is <" << pointA << "," << pointB << ">" << endl;
-		 //<< "<" << pointC << "," << pointD << ">" << endl;
 
 	MATRIX<double> temp_return(row, row);
 	MATRIX<double> temp_store(row, row);
 	temp_store = temp;
-	for (int i = 0; i < row; ++i)
-	{
-		for (int j = 0; j < row; ++j)
-		{
-			cout << temp_store[i][j] << " ";
-		}
-		cout << endl;
-	}
 
-	cout << endl;
-	
 	for (int x = 1; x < input_length; ++x){
 		temp_return = multiplication(temp_store, temp, row);
 	}
-
-	for (int i = 0; i < row; ++i)
-	{
-		for (int j = 0; j < row; ++j)
-		{
-			cout << temp_store[i][j] << " ";
-		}
-		cout << endl;
-	}
-
-	cout << endl;
 	
 	return temp_return[pointA][pointB];	
 }
