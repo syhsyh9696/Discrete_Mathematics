@@ -13,8 +13,8 @@ int length(MATRIX<double> temp, int row) {
 
 	int pointA = 0;
 	int pointB = 0;
-	int pointC = 0;
-	int pointD = 0;
+	//int pointC = 0;
+	//int pointD = 0;
 	cout << "Please enter two point you want to use" << endl
 		 <<"A?";
 	cin >> pointA;
@@ -31,9 +31,32 @@ int length(MATRIX<double> temp, int row) {
 	MATRIX<double> temp_return(row, row);
 	MATRIX<double> temp_store(row, row);
 	temp_store = temp;
+	for (int i = 0; i < row; ++i)
+	{
+		for (int j = 0; j < row; ++j)
+		{
+			cout << temp_store[i][j] << " ";
+		}
+		cout << endl;
+	}
 
-	for (int x = 1; x < input_length; ++x)
+	cout << endl;
+	
+	for (int x = 1; x < input_length; ++x){
 		temp_return = multiplication(temp_store, temp, row);
+	}
+
+	for (int i = 0; i < row; ++i)
+	{
+		for (int j = 0; j < row; ++j)
+		{
+			cout << temp_store[i][j] << " ";
+		}
+		cout << endl;
+	}
+
+	cout << endl;
+	
 	return temp_return[pointA][pointB];	
 }
 
@@ -46,14 +69,15 @@ MATRIX<double> multiplication(MATRIX<double>& temp_store, MATRIX<double> temp, i
 			double sum = 0.0;
 			for (int k = 0; k < row; ++k)
 			{
-				sum += temp_store[i][k] * temp[k][j];
+				sum =sum + temp_store[i][k] * temp[k][j];
 			}
+			
 			temp_store[i][j] = sum;
 			temp_return[i][j] = sum;
 		}
 	} //end for
 
-	return temp_return;
+	return temp_store;
 }
 
 int main(int argc, char const *argv[])
