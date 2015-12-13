@@ -62,6 +62,10 @@ int length(MATRIX<double> temp, int row) {
 
 MATRIX<double> multiplication(MATRIX<double>& temp_store, MATRIX<double> temp, int row) {
 	MATRIX<double> temp_return(row, row);
+	MATRIX<double> temp_re(row,row);
+	temp_re  = temp_store;
+	temp_store = temp_return;
+
 	for (int i = 0; i < row; ++i)
 	{
 		for (int j = 0; j < row; ++j)
@@ -69,7 +73,7 @@ MATRIX<double> multiplication(MATRIX<double>& temp_store, MATRIX<double> temp, i
 			double sum = 0.0;
 			for (int k = 0; k < row; ++k)
 			{
-				sum =sum + temp_store[i][k] * temp[k][j];
+				sum =sum + temp_re[i][k] * temp[k][j];
 			}
 			
 			temp_store[i][j] = sum;
@@ -83,7 +87,7 @@ MATRIX<double> multiplication(MATRIX<double>& temp_store, MATRIX<double> temp, i
 int main(int argc, char const *argv[])
 {
 	int row = 5;
-	MATRIX<double> test(row, row);
+	MATRIX<double> test(row, row); 
 	test[0][1] = 1;
 	test[1][0] = 1;
 	test[1][2] = 1;
