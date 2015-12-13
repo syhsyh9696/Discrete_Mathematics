@@ -27,7 +27,7 @@ int length(MATRIX<double> temp, int row) {
 	MATRIX<double> temp_store(row, row);
 	temp_store = temp;
 
-	for (int x = 1; x < input_length; ++x){
+	for (int x = 1; x < input_length; ++x) {
 		temp_return = multiplication(temp_store, temp, row);
 	}
 	

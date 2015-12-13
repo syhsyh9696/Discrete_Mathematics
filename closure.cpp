@@ -47,18 +47,18 @@ MATRIX<double> transitivityClosure(MATRIX<double> temp, int row) {
 
 int main(int argc, char const *argv[])
 {
-	int row = 4;
+	int row = 7;
 	MATRIX<double> test(row, row);
 
 	MATRIX<double> test1(row, row);
 
+	test[0][0] = 1;
 	test[0][1] = 1;
-	test[1][2] = 1;
 	test[1][3] = 1;
-	test[2][0] = 1;
-	test[2][1] = 1;
-	test[2][3] = 1;
-	test[3][0] = 1;
+	test[2][4] = 1;
+	test[3][1] = 1;
+	// test[2][3] = 1;
+	// test[3][0] = 1;
 	test1 = transitivityClosure(test, row);
 
 	for (int i = 0; i < row; ++i)
