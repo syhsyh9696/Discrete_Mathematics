@@ -67,7 +67,6 @@ int main(int argc, char const *argv[])
 	temp_int = length(newFigure, row);
 	cout << temp_int << endl;
 
-
 	return 0;
 }
 
@@ -297,7 +296,7 @@ void getFigure(MATRIX<double>& newFigure, int nodeNumber) {
 		int temp2 = (int)(temp[3] - '0');
 
 		++newFigure[temp1][temp2];
-		cout << newFigure[temp1][temp2];
+		//cout << newFigure[temp1][temp2];
 
 		cout << "Do you want enter new? (enter 0 for next, enter 1 for exit)" << endl 
 		     << "?";
