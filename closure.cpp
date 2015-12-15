@@ -29,11 +29,14 @@ MATRIX<double> transitivityClosure(MATRIX<double> temp, int row) {
 		for (int j = 0; j < row; ++j) {
 			if(temp[j][i] == 1) {
 				for (int k = 0; k < row; ++k) {
-					temp[j][k] = temp[j][k] + temp[i][k];
+					temp[j][k] += temp[i][k];
 				}
-			} 
+			}
+			else
+				continue;  
 		}
 	} //end for
+
 
 	for (int x = 0; x < row; ++x) {
 		for (int y = 0; y < row; ++y) {
@@ -59,6 +62,16 @@ int main(int argc, char const *argv[])
 	test[3][1] = 1;
 	// test[2][3] = 1;
 	// test[3][0] = 1;
+	for (int i = 0; i < row; ++i)
+	{
+		for (int j = 0; j < row; ++j)
+		{
+			cout << test[i][j] << " ";
+		}
+		cout << endl;
+	}
+	cout << endl;
+
 	test1 = transitivityClosure(test, row);
 
 	for (int i = 0; i < row; ++i)
