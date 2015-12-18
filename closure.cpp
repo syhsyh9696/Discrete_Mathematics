@@ -29,7 +29,8 @@ MATRIX<double> transitivityClosure(MATRIX<double> temp, int row) {
 		for (int j = 0; j < row; ++j) {
 			if(temp[j][i] == 1) {
 				for (int k = 0; k < row; ++k) {
-					temp[j][k] += temp[i][k];
+					if(temp[i][k] == 1)
+						++temp[j][k];			
 				}
 			}
 			else
